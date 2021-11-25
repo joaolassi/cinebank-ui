@@ -1,0 +1,20 @@
+<a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu">
+  <i class="pi pi-bars"></i>
+</a>
+
+<div [hidden]="!exibindoMenu">
+  <aside class="sidebar">
+    <div class="titulo">
+      <a [routerLink]="['/home']">
+        <img src="./../../../assets/img/pipoca.png" alt="imagem de pipoca">
+        <h1>CINEBANK</h1>
+      </a>
+    </div>
+    <a [routerLink]="['/salas']" *ngIf="auth.temPermissao('ROLE_PESQUISAR_SALA')">Salas</a>
+    <a [routerLink]="['/filmes']" *ngIf="auth.temPermissao('ROLE_PESQUISAR_FILME')">Filmes</a>
+    <a [routerLink]="['/sessoes']" *ngIf="auth.temPermissao('ROLE_PESQUISAR_SESSAO')">Sessoes</a>
+    <footer>
+      <a [routerLink]="['/login']" (click)="logout()">Sair</a>
+    </footer>
+  </aside>
+</div>

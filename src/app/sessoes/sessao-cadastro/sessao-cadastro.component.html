@@ -1,0 +1,48 @@
+<div class="container">
+  <form #sessaoForm="ngForm" autocomplete="off" (ngSubmit)="salvar(sessaoForm)">
+
+    <div class="p-grid">
+      <div class="col-12 md:col-12 sm:col-12">
+        <h1>{{ editando ? 'Edição de' : 'Nova' }} Sessão</h1>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid">
+        <label>Data</label>
+        <p-calendar name="data" dateFormat="dd/mm/yy" [inline]="false"
+        [readonlyInput]="false" [showIcon]="false" #data
+          [(ngModel)]="sessao.data"></p-calendar>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid">
+        <label>Hora Início</label>
+        <input pInputText name="horaInicio" type="time" #valor
+          [(ngModel)]="sessao.horaInicio">
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid">
+        <label>Valor</label>
+        <p-inputNumber mode="currency" currency="BRL" placeholder="0,00"
+        type="number" name="valor" #valor [(ngModel)]="sessao.valor">
+        </p-inputNumber>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid">
+        <label>Filme</label>
+        <p-dropdown [options]="filmes" placeholder="Selecione" [(ngModel)]="sessao.filme.codigo" name="filme" #filme
+          [required]="true"></p-dropdown>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid">
+        <label>Sala</label>
+        <p-dropdown [options]="salas" placeholder="Selecione" name="sala" [(ngModel)]="sessao.sala.codigo"
+          [filter]="true" #sala></p-dropdown>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 buttons">
+        <button pButton type="submit" label="Salvar" [disabled]="sessaoForm.invalid"></button>
+        <a routerLink="/sessoes">Voltar para a pesquisa</a>
+      </div>
+    </div>
+
+  </form>
+</div>

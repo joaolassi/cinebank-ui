@@ -1,0 +1,53 @@
+<header>
+  <h1>Filmes</h1>
+</header>
+<div class="container">
+  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formulario">
+
+    <div class="p-grid">
+      <div class="col-12 titulo">
+        <h1>{{ editando ? 'Edição de' : 'Novo' }} Filme</h1>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid anexo" *ngIf="!formulario.get('imagem')?.value">
+        <p-fileUpload name="imagem" mode="advanced" [auto]="true" [maxFileSize]="100000000" chooseLabel="Anexar"
+          accept="image/*,application/*" [url]="urlUploadAnexo" (onBeforeUpload)="antesUploadAnexo($event)"
+          [headers]="uploadHeaders" (onUpload)="aoTerminarUploadAnexo($event)" (onError)="erroUpload($event)"
+          [hidden]="uploadEmAndamento">
+        </p-fileUpload>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid" dir="rtl" *ngIf="formulario.get('imagem')?.value">
+        <button pButton type="button" class="p-button-danger" icon="pi pi-times" pTooltip="Remover Imagem"
+          tooltipPosition="top" (click)="removerAnexo()"></button>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid">
+        <label>Título</label>
+        <input pInputText type="text" name="titulo" formControlName="titulo">
+        <app-message [control]="formulario.get('titulo')" error="required" text="Informe uma descrição"></app-message>
+      </div>
+      <div class="col-12 md:col-12 sm:col-12 p-fluid">
+        <label>Descrição</label>
+        <textarea pInputTextarea rows="3" name="descricao" formControlName="descricao"></textarea>
+
+        <app-message [control]="formulario.get('descricao')" error="required" text="Informe uma descrição">
+        </app-message>
+        <app-message [control]="formulario.get('descricao')" error="minlength"
+          text="Mínimo de {{ formulario.get('descricao')?.errors?.minlength?.requiredLength }} caracteres">
+        </app-message>
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 p-fluid">
+        <label>Duração</label>
+        <input pInputText type="time" name="duracao" formControlName="duracao">
+
+      </div>
+
+      <div class="col-12 md:col-12 sm:col-12 buttons">
+        <a routerLink="/filmes">Voltar para a pesquisa</a>
+        <button pButton type="submit" label="Salvar" [disabled]="formulario.invalid || uploadEmAndamento"></button>
+      </div>
+    </div>
+  </form>
+</div>

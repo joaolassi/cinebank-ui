@@ -1,0 +1,38 @@
+.container {
+  height: 100vh;
+  font-family: 'Nunito', sans-serif;
+  background-image: url(./../../../assets/img/cinebank-bg.jpg);
+  background-size: cover;
+}
+
+.slogan{
+  display: flex;
+  justify-content: flex-end;
+
+  position: relative;
+  right: 9%;
+  top: 10%;
+
+  color: white;
+  font-size: 52pt;
+  letter-spacing: .6rem;
+
+  animation: ease-out 2s arrastarParaEsquerda;
+}
+
+@keyframes arrastarParaEsquerda {
+  0% {
+    transform: translateX(-100%);
+  }
+  80% {
+    transform: translateX(5%);
+  }
+  90% {
+    transform: translateX(-1%);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}
+
+

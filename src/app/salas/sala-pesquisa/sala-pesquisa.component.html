@@ -1,0 +1,36 @@
+<header>
+  <h1>Salas</h1>
+</header>
+<div class="container">
+  <div class="p-grid">
+    <div class="p-col-12">
+      <p-table [value]="salas" [responsive]="true" [lazy]="true" #tabela>
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade de assentos</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sala>
+          <tr>
+            <td>
+              <span class="p-column-title">Titulo</span>
+              {{ sala.nome }}
+            </td>
+            <td>
+              <span class="p-column-title">Descrição</span>
+              {{ sala.qtdAssentos }}
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="6">
+              Nenhum filme encontrado
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

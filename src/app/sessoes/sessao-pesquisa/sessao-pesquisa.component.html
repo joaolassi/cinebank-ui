@@ -1,0 +1,78 @@
+<header>
+  <h1>Sessões</h1>
+</header>
+<div class="container">
+  <div class="p-grid">
+    <div class="p-col-12">
+      <a pButton class="add" [routerLink]="['/sessoes/novo']"><i class="pi pi-plus"></i></a>
+      <p-table [value]="sessao" [responsive]="true" [lazy]="true" #tabela>
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Data</th>
+            <th>Início da sessão</th>
+            <th>Fim da sessão</th>
+            <th>Valor</th>
+            <th>Tipo de animação</th>
+            <th>Tipo de áudio</th>
+            <th>Filme na sessão</th>
+            <th>Sala na sessão</th>
+            <th class="col-acoes">Ações</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-sessao>
+          <tr>
+            <td>
+              <span class="p-column-title">Data</span>
+              {{ sessao.data | date:'dd/MM/y'}}
+            </td>
+            <td>
+              <span class="p-column-title">Início da sessão</span>
+              {{ sessao.horaInicio }}
+            </td>
+            <td>
+              <span class="p-column-title">Fim da sessão</span>
+              {{ sessao.horaFim }}
+            </td>
+
+            <td>
+              <span class="p-column-title">Valor</span>
+              {{ sessao.valor | number:'1.2-2' }}
+            </td>
+
+            <td>
+              <span class="p-column-title">Tipo de animação</span>
+              {{ sessao.tipoAnimacao }}
+            </td>
+            <td>
+              <span class="p-column-title">Tipo de áudio</span>
+              {{ sessao.tipoAudio }}
+            </td>
+            <td>
+              <span class="p-column-title">Filme na sessão</span>
+              {{ sessao.filme.titulo }}
+            </td>
+            <td>
+              <span class="p-column-title">Sala na sessão</span>
+              {{ sessao.sala.nome }}
+            </td>
+
+            <td class="col-acoes acoes">
+              <a pButton icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="top"
+               [routerLink]="['/sessoes', sessao.codigo]"></a>
+              <button pButton icon="pi pi-trash" pTooltip="Excluir" (click)="confirmarExclusao(sessao)"
+                tooltipPosition="top" [disabled]="naoTemPermissao('ROLE_REMOVER_SESSAO')">
+              </button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+            <td colspan="6">
+              Nenhum filme encontrado
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
