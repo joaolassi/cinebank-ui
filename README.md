@@ -18,5 +18,5 @@ Para fazer este projeto rodar
 10 - Instale o angular jwt com o comando npm install @auth0/angular-jwt
 11 - Inicia a aplicação com ng serve
 12 - Login
-12.1 - Para logar na api como administrador utilize "admin@printwayy.com" como e-mail e admin "como" senha.
+12.1 - Para logar na api como administrador utilize "admin@printwayy.com" como e-mail e "admin" como senha.
 12.2 - PAra logar como usuário sem premissões de cadastro e remoção utilize "nobody@printwayy.com" e "jhondoe" como senha.
