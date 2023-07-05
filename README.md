@@ -15,7 +15,7 @@ Para fazer este projeto rodar
 "node_modules/primeng/resources/themes/saga-blue/theme.css",
 "./node_modules/primeng/resources/primeng.css"
 
-10 - Instale o andular jwt com o comando npm install @auth0/angular-jwt
+10 - Instale o angular jwt com o comando npm install @auth0/angular-jwt
 11 - Inicia a aplicação com ng serve
 12 - Login
 12.1 - Para logar na api como administrador utilize "admin@printwayy.com" como e-mail e admin "como" senha.
