@@ -19,4 +19,4 @@ Para fazer este projeto rodar
 11 - Inicia a aplicação com ng serve
 12 - Login
 12.1 - Para logar na api como administrador utilize "admin@printwayy.com" como e-mail e "admin" como senha.
-12.2 - PAra logar como usuário sem premissões de cadastro e remoção utilize "nobody@printwayy.com" e "jhondoe" como senha.
+12.2 - Para logar como usuário sem premissões de cadastro e remoção utilize "nobody@printwayy.com" e "jhondoe" como senha.
